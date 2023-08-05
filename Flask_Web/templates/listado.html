@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Empresa XYZ</title>
+</head>
+<body>
+    <h1>Listado de Empleados</h1>
+      {% for item in emp %}
+        <li>{{ item.nombre }} - {{ item.apellido}}
+            <img src="{{item.picture}}" width="200px">
+        </li>
+      {% endfor %}
+
+</body>
+</html>
