@@ -39,6 +39,33 @@ def newBook():
         return redirect(url_for('showBooks'))
     else:
         return render_template('newbooks.html')
+    
+#Ruta para eliminar Books
+@app.route('/books/<int:book_id>/delete',methods=['GET','POST'])   
+def deleteBook(book_id):
+    bookToDelete=session.query(Book).filter_by(id=book_id).one()
+    if request.method=="POST":
+        session.delete(bookToDelete)
+        session.commit()
+        return redirect(url_for('showBooks',book_id=book_id))
+    else:
+        return render_template('deleteBook.html',book=bookToDelete)
+
+#Ruta para Editar Books 
+@app.route('/books/<int:book_id>/edit',methods=['GET','POST'])   
+def editBook(book_id):
+    bookToEdit=session.query(Book).filter_by(id=book_id).one()
+    if request.method=="POST":
+        if request.form['nombre']:
+            #Poniendo solo el campo Nombre
+            bookToEdit.title=request.form['nombre']
+            return redirect(url_for('showBooks'))
+    else:
+        return render_template('editBook.html',book=bookToEdit)
+
+
+        
+
         
                      
                      

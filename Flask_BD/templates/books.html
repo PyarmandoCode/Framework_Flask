@@ -5,14 +5,30 @@
     <title>Administrador de Libros</title>
 </head>
 <a href="{{url_for('newBook')}}" >
-    <button>Adicionar Libros</button>
+    <button>Add</button>
 </a>    
 <body>
     <h1>Listado de Libros -2023</h1>
-<ol>
+<table class="default" border=1>
+    <tr>
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Autor</th>
+        <th>Genero</th>
+        <th>Precio</th>
+        
+    </tr>   
     {% for book in books %}
-        <li> {{book.title}} Creado {{book.author}}</li>
-    {% endfor %}
-</ol>    
+    <tr>
+       <td>{{book.id}}</td> 
+       <td>{{book.title}}</td> 
+       <td>{{book.author}}</td> 
+       <td>{{book.genre}}</td> 
+       <td>{{book.price}}</td> 
+       <td><a href="{{url_for('deleteBook',book_id=book.id)}}">Delete</a></td>
+       <td><a href="{{url_for('editBook',book_id=book.id)}}">Edit</a></td>
+    </tr>    
+    {% endfor %}    
+</table>
 </body>
 </html>
