@@ -24,41 +24,41 @@
                                     <h1 class="h4 text-gray-900 mb-4">Suministros de Computo!</h1>
                                 </div>
                                  <form class="user" action="/" method="POST">
-                                     <input id="id" name="id" value="" type="hidden"
+                                     <input id="id" name="id" value="{{producto.id}}" type="hidden"
                                            class="form-control input-md">
 
                                      <div class="form-group">
                                          <label class="col-md-4 control-label" for="name">Nombre</label>
                                          <div class="col-md-4">
-                                             <input id="nombre" name="nombre" type="text" placeholder="Nombre" value="" class="form-control input-md">
+                                             <input id="nombre" name="nombre" type="text" placeholder="Nombre" value="{{producto.name}}" class="form-control input-md">
                                          </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label class="col-md-4 control-label" for="precio">Precio</label>
                                          <div class="col-md-4">
-                                             <input id="precio" name="precio" type="text" placeholder="Precio" value="" class="form-control input-md">
+                                             <input id="precio" name="precio" type="text" placeholder="Precio" value="{{producto.precio}}" class="form-control input-md">
                                          </div>
                                      </div>
 
                                       <div class="form-group">
                                          <label class="col-md-4 control-label" for="proveedor">Proveedor</label>
                                          <div class="col-md-4">
-                                             <input id="proveedor" name="proveedor" type="text" placeholder="Proveedor" value="" class="form-control input-md">
+                                             <input id="proveedor" name="proveedor" type="text" placeholder="Proveedor" value="{{producto.proveedor}}" class="form-control input-md">
                                          </div>
                                      </div>
 
                                        <div class="form-group">
                                          <label class="col-md-4 control-label" for="stock">Stock</label>
                                          <div class="col-md-4">
-                                             <input id="stock" name="stock" type="text" placeholder="Stock" value="" class="form-control input-md">
+                                             <input id="stock" name="stock" type="text" placeholder="Stock" value="{{producto.stock}}" class="form-control input-md">
                                          </div>
                                      </div>
 
                                        <div class="form-group">
                                          <label class="col-md-4 control-label" for="estado">Estado</label>
                                          <div class="col-md-4">
-                                             <input id="estado" name="estado" type="text" placeholder="Estado" value="" class="form-control input-md">
+                                             <input id="estado" name="estado" type="text" placeholder="Estado" value="{{producto.estado}}" class="form-control input-md">
                                          </div>
                                      </div>
 
@@ -107,8 +107,8 @@
                             <td>{{producto.stock}}</td>
                             <td>{{producto.estado}}</td>
                             <td>
-                                <a href="">Modificar</a>
-                                <a href="">Eliminar</a>
+                                <a href="/{{producto.id}}">Modificar</a>
+                                <a href="delete/{{producto.id}}">Eliminar</a>
                             </td>
                         </tr>
                         {% endfor %}

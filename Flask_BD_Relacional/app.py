@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -44,9 +44,16 @@ def index(producto_id=None):
     producto = None
     if producto_id:
         producto = Productos.query.filter_by(id=producto_id).first()
+        #print("ingreso a modificar")
     productos = Productos.query.all()
-
     return render_template("index.html", productos=productos, producto=producto)
+
+@app.route("/delete/<int:producto_id>",methods=['GET'])
+def deleteproductos(producto_id):
+    producto = Productos.query.filter_by(id=producto_id).first()
+    db.session.delete(producto)
+    db.session.commit()
+    return redirect("/")
 
 
 if __name__ == "__main__":
