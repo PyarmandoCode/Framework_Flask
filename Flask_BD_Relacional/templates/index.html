@@ -23,6 +23,53 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Suministros de Computo!</h1>
                                 </div>
+                                 <form class="user" action="/" method="POST">
+                                     <input id="id" name="id" value="" type="hidden"
+                                           class="form-control input-md">
+
+                                     <div class="form-group">
+                                         <label class="col-md-4 control-label" for="name">Nombre</label>
+                                         <div class="col-md-4">
+                                             <input id="nombre" name="nombre" type="text" placeholder="Nombre" value="" class="form-control input-md">
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label class="col-md-4 control-label" for="precio">Precio</label>
+                                         <div class="col-md-4">
+                                             <input id="precio" name="precio" type="text" placeholder="Precio" value="" class="form-control input-md">
+                                         </div>
+                                     </div>
+
+                                      <div class="form-group">
+                                         <label class="col-md-4 control-label" for="proveedor">Proveedor</label>
+                                         <div class="col-md-4">
+                                             <input id="proveedor" name="proveedor" type="text" placeholder="Proveedor" value="" class="form-control input-md">
+                                         </div>
+                                     </div>
+
+                                       <div class="form-group">
+                                         <label class="col-md-4 control-label" for="stock">Stock</label>
+                                         <div class="col-md-4">
+                                             <input id="stock" name="stock" type="text" placeholder="Stock" value="" class="form-control input-md">
+                                         </div>
+                                     </div>
+
+                                       <div class="form-group">
+                                         <label class="col-md-4 control-label" for="estado">Estado</label>
+                                         <div class="col-md-4">
+                                             <input id="estado" name="estado" type="text" placeholder="Estado" value="" class="form-control input-md">
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                        <div class="col-md-4">
+                                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                                Grabar
+                                            </button>
+                                        </div>
+                                    </div>
+                                 </form>
                                 </div>
                         </div>
                     </div>
@@ -43,6 +90,7 @@
                             <th>ID</th>
                             <th>NOMBRE</th>
                             <th>PRECIO</th>
+                            <th>PROVEEDOR</th>
                             <th>STOCK</th>
                             <th>ESTADO</th>
                             <th>ACTIONS</th>
@@ -50,6 +98,20 @@
                         </thead>
                         <tfoot>
                         <tbody>
+                        {% for producto in productos %}
+                        <tr>
+                            <td>{{producto.id}}</td>
+                            <td>{{producto.name}}</td>
+                            <td>{{producto.precio}}</td>
+                            <td>{{producto.proveedor}}</td>
+                            <td>{{producto.stock}}</td>
+                            <td>{{producto.estado}}</td>
+                            <td>
+                                <a href="">Modificar</a>
+                                <a href="">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
                         </tbody>
                         </table>
                 </div>
